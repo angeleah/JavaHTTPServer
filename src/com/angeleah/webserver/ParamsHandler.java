@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 public class ParamsHandler implements RequestHandler {
 
-    public RequestStore handle(RequestStore requestStore) {
+    public RequestStore handle(RequestStore requestStore, String directory) {
         HtmlBodyBuilder builder = new HtmlBodyBuilder();
         HashMap<String,String> params = requestStore.getParams();
         String body = builder.createHtmlBodyWithParamsContent(params);

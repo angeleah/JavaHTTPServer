@@ -17,6 +17,7 @@ import static junit.framework.Assert.assertEquals;
 public class FormHandlerTest {
 
     public FormHandler formHandler;
+    public String directory = "com/angeleah/webserver/TestDirectory/";
 
     @Before
     public void SetUp() {
@@ -31,7 +32,7 @@ public class FormHandlerTest {
         String content = "my = data value1 = hello";
         String body = builder.createHtmlBodyWithRequestContent(content);
         requestStore.setRequestBody(content);
-        formHandler.handle(requestStore);
+        formHandler.handle(requestStore, directory);
         byte[] b1 = requestStore.getBody();
         byte[] b2 = body.getBytes();
         assertEquals("200", requestStore.getCode());

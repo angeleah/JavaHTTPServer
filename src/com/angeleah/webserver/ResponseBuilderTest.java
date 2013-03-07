@@ -19,9 +19,9 @@ import static junit.framework.Assert.assertEquals;
  */
 public class ResponseBuilderTest {
 
-    public ResponseBuilder responseBuilder;
-    public RequestStore requestStore;
-    public Date date;
+    private ResponseBuilder responseBuilder;
+    private RequestStore requestStore;
+    private Date date;
 
     @Before
     public void setUp() {

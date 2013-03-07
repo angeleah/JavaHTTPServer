@@ -16,7 +16,8 @@ import static junit.framework.Assert.assertFalse;
  */
 public class RedirectHandlerTest {
 
-    public RedirectHandler redirectHandler;
+    private RedirectHandler redirectHandler;
+    private String directory = "com/angeleah/webserver/TestDirectory/";
 
     @Before
     public void SetUp() {
@@ -26,7 +27,7 @@ public class RedirectHandlerTest {
     @Test
     public void itShouldbeAbleToHandleARedirectProperly() {
         RequestStore requestStore = new RequestStore();
-        redirectHandler.handle(requestStore);
+        redirectHandler.handle(requestStore,directory);
         assertEquals("redirect",requestStore.getStatus());
         assertEquals("302",requestStore.getCode());
         assertEquals("http://localhost:5000/", requestStore.getLocation());

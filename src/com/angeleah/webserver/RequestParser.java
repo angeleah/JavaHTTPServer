@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  */
 public class RequestParser {
 
-    public RequestStore requestStore;
+    private RequestStore requestStore;
 
     public RequestParser(BufferedReader in, RequestStore requestStore) {
         this.requestStore = requestStore;

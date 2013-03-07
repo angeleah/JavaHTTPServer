@@ -18,9 +18,9 @@ import java.util.Map;
 */
 public class IndexHandler implements RequestHandler {
 
-    public RequestStore handle(RequestStore requestStore) {
+    public RequestStore handle(RequestStore requestStore, String directory) {
         HtmlBodyBuilder htmlBodyBuilder = new HtmlBodyBuilder();
-        ArrayList<String> dirContents = readDirectory(requestStore.getDirectory());
+        ArrayList<String> dirContents = readDirectory(directory);
         String body = htmlBodyBuilder.createHtmlBodyWithDirectoryContents(dirContents);
         requestStore.setBody(body.getBytes());
         requestStore.setContentLength(body.length());

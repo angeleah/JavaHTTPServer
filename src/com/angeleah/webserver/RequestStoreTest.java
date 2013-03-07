@@ -14,7 +14,7 @@ import static junit.framework.Assert.assertEquals;
 
 public class RequestStoreTest {
 
-    public RequestStore requestStore;
+    private RequestStore requestStore;
 
     @Before
     public void setUp() {

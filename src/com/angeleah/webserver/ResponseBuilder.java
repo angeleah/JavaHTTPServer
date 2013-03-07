@@ -14,8 +14,8 @@ import java.util.Date;
  */
 public class ResponseBuilder {
 
-    public RequestStore requestStore;
-    public Date date;
+    private RequestStore requestStore;
+    private Date date;
 
     public ResponseBuilder(RequestStore requestStore, Date date) {
         this.requestStore = requestStore;

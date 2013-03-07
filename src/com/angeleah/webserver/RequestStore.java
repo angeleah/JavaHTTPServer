@@ -15,16 +15,15 @@ public class RequestStore {
     private String protocolVersion = null;
     private HashMap<String, String> headers = new HashMap<String, String>();
     private byte[] body = null;
-    private String directory = null;
     private Integer startRange = null;
     private Integer endRange = null;
     private String code = null;
     private String status = null;
     private String location = null;
     private String mimeType = null;
-    public Integer requestContentLength = null;
-    public Integer contentLength = null;
-    public HashMap<String,String> params = new HashMap<String,String>();
+    private Integer requestContentLength = null;
+    private Integer contentLength = null;
+    private HashMap<String,String> params = new HashMap<String,String>();
     private String requestBody = null;
 
 
@@ -102,14 +101,6 @@ public class RequestStore {
 
     public byte[] getBody() {
         return body;
-    }
-
-    public void setDirectory(String dir) {
-        directory = dir;
-    }
-
-    public String getDirectory() {
-        return directory;
     }
 
     public String getCode() {

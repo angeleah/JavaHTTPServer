@@ -13,9 +13,12 @@ import java.util.HashMap;
  */
 public class Router {
 
-    public HashMap<String, Object> routes = new HashMap<String, Object>();
+    private HashMap<String, Object> routes = new HashMap<String, Object>();
 
-    public Router() {
+    private String directory;
+
+    public Router(String directory) {
+        this.directory = directory;
     }
 
     public void register(String path, RequestHandler handler) {
@@ -24,8 +27,8 @@ public class Router {
 
     public void routeRequest(RequestStore requestStore) {
         String path = requestStore.getRequestUri();
-        RequestHandler handler = getRequestHandlerForPath(requestStore.getDirectory(), path);
-        handler.handle(requestStore);
+        RequestHandler handler = getRequestHandlerForPath(directory, path);
+        handler.handle(requestStore,directory);
     }
 
     private RequestHandler getRequestHandlerForPath(String directory, String path) {

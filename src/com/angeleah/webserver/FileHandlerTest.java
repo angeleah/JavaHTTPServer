@@ -17,6 +17,7 @@ import org.junit.Test;
 public class FileHandlerTest {
 
     public FileHandler fileHandler;
+    public String directory = "com/angeleah/webserver/TestDirectory/";
 
     @Before
     public void SetUp() {
@@ -26,11 +27,10 @@ public class FileHandlerTest {
     @Test
     public void itShouldBeAbleToHandleAFileRequestProperly() {
         RequestStore requestStore = new RequestStore();
-        requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
         String body = "<p>This Page is awesome</p>";
         requestStore.setRequestUri("awesomePage.html");
         requestStore.setMethod("GET");
-        fileHandler.handle(requestStore);
+        fileHandler.handle(requestStore, directory);
         assertEquals("200", requestStore.getCode());
         assertEquals("OK",requestStore.getStatus());
         byte[] b1 = requestStore.getBody();
@@ -50,38 +50,26 @@ public class FileHandlerTest {
     @Test
     public void itShouldReturnA405IfAnythingButAGetRequestIsMade() {
         RequestStore requestStore = new RequestStore();
-        requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
         requestStore.setRequestUri("awesomePage.html");
         requestStore.setMethod("PUT");
-        fileHandler.handle(requestStore);
+        fileHandler.handle(requestStore,directory);
         assertEquals("405", requestStore.getCode());
         assertEquals("Method Not Allowed", requestStore.getStatus());
     }
 
-//    @Test
-//    public void itShouldReturnPartialContentIfThereIsARangeHeader(){
-//        RequestStore requestStore = new RequestStore();
-//        requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
-//        requestStore.setRequestUri("testFile.txt");
-//        requestStore.setMethod("GET");
-//        fileHandler.handle(requestStore);
-//        assertEquals("405", requestStore.getCode());
-//        assertEquals("Method Not Allowed", requestStore.getStatus());
-//    }
-
-//    RequestStore requestStore = new RequestStore();
-//    requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
-//    String body = "Hello Lady";
-//    requestStore.setRequestUri("testFile.txt");
-//    requestStore.setMethod("GET");
-//    requestStore.setStartRange(0);
-//    requestStore.setEndRange(5);
-//    fileHandler.handle(requestStore);
-//    assertEquals("206", requestStore.getCode());
-//    assertEquals("Partial Content",requestStore.getStatus());
-//    byte[] b1 = requestStore.getBody();
-//    byte[] b2 = body.getBytes();
-//    assert(FileByteArrayCompare(b1, b2));
+    @Test
+    public void itShouldReturnPartialContentIfThereIsARangeHeader(){
+        RequestStore requestStore = new RequestStore();
+        String body = "This is a";
+        requestStore.setRequestUri("testFile.txt");
+        requestStore.setMethod("GET");
+        requestStore.setStartRange(0);
+        requestStore.setEndRange(9);
+        fileHandler.handle(requestStore,directory);
+        assertEquals("206", requestStore.getCode());
+        assertEquals("Partial Content",requestStore.getStatus());
+        byte[] b1 = requestStore.getBody();
+        byte[] b2 = body.getBytes();
+        assert(FileByteArrayCompare(b1, b2));
+    }
 }
-
-

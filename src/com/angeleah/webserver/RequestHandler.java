@@ -11,5 +11,5 @@ import java.util.Map;
  */
 public interface RequestHandler {
 
-    public RequestStore handle(RequestStore requestStore);
+    public RequestStore handle(RequestStore requestStore, String directory);
 }

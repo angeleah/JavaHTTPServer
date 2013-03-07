@@ -18,6 +18,8 @@ import java.util.HashMap;
 public class ParamsHandlerTest {
 
     public ParamsHandler paramsHandler;
+    public String directory = "com/angeleah/webserver/TestDirectory/";
+
 
     @Before
     public void SetUp() {
@@ -33,7 +35,7 @@ public class ParamsHandlerTest {
         params.put("variable_2", "some_value");
         requestStore.setParams(params);
         String body = builder.createHtmlBodyWithParamsContent(requestStore.getParams());
-        paramsHandler.handle(requestStore);
+        paramsHandler.handle(requestStore, directory);
         assertEquals(body, "<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<p>variable_2 = some_value</p>\n<p>variable_1 = 123459876</p>\n</body>\n</html>");
         byte[] b1 = requestStore.getBody();
         byte[] b2 = body.getBytes();

@@ -31,7 +31,6 @@ public class Conductor {
 
     public byte[] conductTheProcess() throws IOException {
         RequestStore requestStore = new RequestStore();
-        requestStore.setDirectory(directory);
         parseRequest(in, requestStore);
         routeRequest(requestStore);
         Date date = new Date();
@@ -45,7 +44,7 @@ public class Conductor {
     }
 
     public void routeRequest(RequestStore requestStore) {
-        Router router = new Router();
+        Router router = new Router(directory);
         registerRoutes(router);
         router.routeRequest(requestStore);
     }

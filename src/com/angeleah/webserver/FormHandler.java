@@ -9,7 +9,7 @@ package com.angeleah.webserver;
  */
 public class FormHandler implements RequestHandler{
 
-    public RequestStore handle(RequestStore requestStore) {
+    public RequestStore handle(RequestStore requestStore, String directory) {
         HtmlBodyBuilder builder = new HtmlBodyBuilder();
         StringBuilder body = new StringBuilder();
         if ((requestStore.getParams() != null) && (requestStore.getRequestBody() != null))  {

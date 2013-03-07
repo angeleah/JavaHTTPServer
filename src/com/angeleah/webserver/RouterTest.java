@@ -18,6 +18,8 @@ import static junit.framework.Assert.assertTrue;
  */
 public class RouterTest {
 
+    public String directory = "com/angeleah/webserver/TestDirectory/";
+
     public boolean FileByteArrayCompare(byte[] b1, byte[] b2){
         for (int i=0; i< b1.length; i++) {
             if (b1[i] != b2[i]) {
@@ -32,7 +34,7 @@ public class RouterTest {
         public boolean wasHandled = false;
 
         @Override
-        public RequestStore handle(RequestStore requestStore) {
+        public RequestStore handle(RequestStore requestStore, String directory) {
             wasHandled = true;
             return requestStore;
         }
@@ -42,7 +44,7 @@ public class RouterTest {
     public void itShouldBeAbleToRegisterARoute() {
         RequestStore requestStore = new RequestStore();
         requestStore.setRequestUri("/");
-        Router router = new Router();
+        Router router = new Router(directory);
         TestHandler handler = new TestHandler();
         router.register("/", handler);
         router.routeRequest(requestStore);
@@ -52,10 +54,9 @@ public class RouterTest {
     @Test
     public void itShouldBeAbleToHandleARouteThatPointsToAFile() {
         RequestStore requestStore = new RequestStore();
-        requestStore.setDirectory("com/angeleah/webserver/TestDirectory");
         requestStore.setRequestUri("/awesomePage.html");
         requestStore.setMethod("GET");
-        Router router = new Router();
+        Router router = new Router(directory);
         router.routeRequest(requestStore);
         String body =  "<p>This Page is awesome</p>";
         byte[] b1 = body.getBytes();
@@ -67,8 +68,7 @@ public class RouterTest {
     public void itShouldHandleARouteThatIsNotFound(){
         RequestStore requestStore = new RequestStore();
         requestStore.setRequestUri("/coolawesomesweetness");
-        requestStore.setDirectory("com/angeleah/webserver/TestDirectory");
-        Router router = new Router();
+        Router router = new Router(directory);
         router.routeRequest(requestStore);
         String body ="<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<h1>Not Found</h1>\n</body>\n</html>";
         byte[] b1 = body.getBytes();
