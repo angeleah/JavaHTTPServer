@@ -17,8 +17,9 @@ public class BinaryReader {
             InputStream input = new BufferedInputStream(new FileInputStream(file));
             result = readAndClose(input);
         }
-        catch (FileNotFoundException ex) {
-            log(ex);
+        catch (FileNotFoundException e) {
+            System.err.println(e);
+            e.printStackTrace();
         }
         return  result;
     }
@@ -41,13 +42,10 @@ public class BinaryReader {
                 aInput.close();
             }
         }
-        catch (IOException ex){
-            log(ex);
+        catch (IOException e){
+            System.err.println(e);
+            e.printStackTrace();
         }
         return result.toByteArray();
-    };
-
-    private static void log(Object aThing){
-        System.out.println(String.valueOf(aThing));
     };
 }

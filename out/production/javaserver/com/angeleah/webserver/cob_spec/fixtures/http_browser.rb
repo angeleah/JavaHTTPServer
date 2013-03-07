@@ -68,6 +68,18 @@ module Fixtures
       @data.include? contents
     end
 
+    def get_with_partial_header(url)
+      @response = HTTParty.put("http://#{@host}:#{@port}#{url}", {"Range:" => bytes=0-1})
+    end
+
+    def body_has_partial_file_contents(file)
+      contents = []
+      File.open(file, 'rb') do |f|
+        contents << f.each_char
+      end
+      @data == contents[0]
+    end
+
     def header_field_value(field)
       return @response.headers[field]
     end

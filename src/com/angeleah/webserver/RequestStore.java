@@ -16,6 +16,8 @@ public class RequestStore {
     private HashMap<String, String> headers = new HashMap<String, String>();
     private byte[] body = null;
     private String directory = null;
+    private Integer startRange = null;
+    private Integer endRange = null;
     private String code = null;
     private String status = null;
     private String location = null;
@@ -78,6 +80,22 @@ public class RequestStore {
         return contentLength;
     }
 
+    public void setStartRange(Integer rangeStart) {
+        startRange = rangeStart;
+    }
+
+    public Integer getStartRange() {
+        return startRange;
+    }
+
+    public void setEndRange(Integer rangeLength) {
+        endRange = rangeLength;
+    }
+
+    public Integer getEndRange() {
+        return endRange;
+    }
+
     public void setBody(byte[] bodyInBytes) {
         body = bodyInBytes;
     }
@@ -131,6 +149,11 @@ public class RequestStore {
         status = "Method Not Allowed";
     }
 
+    public void set206() {
+        code = "206";
+        status = "Partial Content";
+    }
+
     public void setMimeType(String type) {
         mimeType = type;
     }
@@ -154,4 +177,5 @@ public class RequestStore {
     public String getRequestBody() {
         return requestBody;
     }
+
 }

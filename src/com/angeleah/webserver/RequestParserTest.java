@@ -11,6 +11,8 @@ import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created with IntelliJ IDEA.
@@ -131,6 +133,16 @@ public class RequestParserTest {
     }
 
     @Test
+    public void itShouldBeAbleToDetermineIfTheLineDoesContainARange() {
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com");
+        BufferedReader in = new BufferedReader(request);
+        RequestStore requestStore = new RequestStore();
+        RequestParser requestParser = new RequestParser(in, requestStore);
+        String line = "Range: bytes=0-1";
+        assertTrue(requestParser.lineContainsRange(line));
+    }
+
+    @Test
     public void itShouldBeAbleToSetTheContentLength() throws IOException {
         StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 45");
         BufferedReader in = new BufferedReader(request);
@@ -139,6 +151,19 @@ public class RequestParserTest {
         requestParser.readHeaders(in);
         Integer length = 45;
         assertEquals(length, requestStore.getRequestContentLength());
+    }
+
+    @Test
+    public void itShouldBeAbleToSetTheStartAndEndOfARange() throws IOException {
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nRange: bytes=0-10");
+        BufferedReader in = new BufferedReader(request);
+        RequestStore requestStore = new RequestStore();
+        RequestParser requestParser = new RequestParser(in, requestStore);
+        requestParser.readHeaders(in);
+        Integer startLength = 0;
+        Integer endLength = 10;
+        assertEquals(startLength, requestStore.getStartRange());
+        assertEquals(endLength, requestStore.getEndRange());
     }
 
     @Test

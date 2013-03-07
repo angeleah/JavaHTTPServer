@@ -24,6 +24,8 @@ public class IndexHandlerTest {
         indexHandler = new IndexHandler();
     }
 
+//    dependency on the exact files in the directory;
+
     @Test
     public void indexHandlerShouldBeAbleToReadADirectory() {
         String directory = "com/angeleah/webserver/TestDirectory";
@@ -33,6 +35,7 @@ public class IndexHandlerTest {
         dirContents.add("file1");
         dirContents.add("helloWorld.html");
         dirContents.add("imageTest.jpeg");
+        dirContents.add("testFile.txt");
         assertEquals(dirContents, indexHandler.readDirectory(directory));
     }
 
@@ -45,6 +48,7 @@ public class IndexHandlerTest {
         dirContentsWithout404.add("file1");
         dirContentsWithout404.add("helloWorld.html");
         dirContentsWithout404.add("imageTest.jpeg");
+        dirContentsWithout404.add("testFile.txt");
         ArrayList<String> dirContents = indexHandler.readDirectory(directory);
         assertEquals(dirContentsWithout404, indexHandler.remove404FromTheDirectoryContents(dirContents));
     }

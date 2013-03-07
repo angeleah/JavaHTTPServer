@@ -6,6 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.net.URLDecoder;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created with IntelliJ IDEA.
@@ -45,6 +47,9 @@ public class RequestParser {
         while ((line != null) && (!line.equals(""))) {
             if (lineContainsContentLength(line)) {
                 setRequestContentLength(line);
+                line = in.readLine();
+            } else if (lineContainsRange(line)) {
+                setRequestRanges(line);
                 line = in.readLine();
             } else {
                 data.add(line);
@@ -102,10 +107,21 @@ public class RequestParser {
         return line.contains("-Length: ");
     }
 
+    public boolean lineContainsRange(String line) {
+        return line.contains("Range: ");
+    }
+
     public void setRequestContentLength(String line) {
         String[] parts = line.split(": ");
         Integer length = Integer.parseInt(parts[1]);
         requestStore.setRequestContentLength(length);
+    }
+
+    public void setRequestRanges(String line) {
+        String[] parts = line.split("=");
+        String[] rangeNumbers = parts[1].split("-");
+        requestStore.setStartRange(Integer.parseInt(rangeNumbers[0]));
+        requestStore.setEndRange(Integer.parseInt(rangeNumbers[1]));
     }
 
     public RequestStore parseInitialRequestLine(String line) throws UnsupportedEncodingException {

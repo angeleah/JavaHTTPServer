@@ -57,6 +57,31 @@ public class FileHandlerTest {
         assertEquals("405", requestStore.getCode());
         assertEquals("Method Not Allowed", requestStore.getStatus());
     }
+
+//    @Test
+//    public void itShouldReturnPartialContentIfThereIsARangeHeader(){
+//        RequestStore requestStore = new RequestStore();
+//        requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
+//        requestStore.setRequestUri("testFile.txt");
+//        requestStore.setMethod("GET");
+//        fileHandler.handle(requestStore);
+//        assertEquals("405", requestStore.getCode());
+//        assertEquals("Method Not Allowed", requestStore.getStatus());
+//    }
+
+//    RequestStore requestStore = new RequestStore();
+//    requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
+//    String body = "Hello Lady";
+//    requestStore.setRequestUri("testFile.txt");
+//    requestStore.setMethod("GET");
+//    requestStore.setStartRange(0);
+//    requestStore.setEndRange(5);
+//    fileHandler.handle(requestStore);
+//    assertEquals("206", requestStore.getCode());
+//    assertEquals("Partial Content",requestStore.getStatus());
+//    byte[] b1 = requestStore.getBody();
+//    byte[] b2 = body.getBytes();
+//    assert(FileByteArrayCompare(b1, b2));
 }
 
 
