@@ -27,7 +27,7 @@ final class HttpRequest implements Runnable {
         Conductor conductor = new Conductor(in, router);
         DataOutputStream out= new DataOutputStream(client.getOutputStream());
 
-        byte[] response = conductor.conductTheProcess();
+        byte[] response = conductor.handleTheRequest();
         int length = response.length;
         out.write(response, 0, length);
 

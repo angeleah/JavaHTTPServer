@@ -124,7 +124,7 @@ public class RequestStore {
 
     public void set404() {
         code = "404";
-        status = "not found";
+        status = "Not Found";
     }
 
     public void set405() {

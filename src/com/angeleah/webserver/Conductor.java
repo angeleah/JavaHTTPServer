@@ -16,7 +16,7 @@ public class Conductor {
         this.router = router;
     }
 
-    public byte[] conductTheProcess() throws IOException {
+    public byte[] handleTheRequest() throws IOException {
         RequestStore requestStore = new RequestStore();
         parseRequest(in, requestStore);
         routeRequest(requestStore);

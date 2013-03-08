@@ -13,7 +13,7 @@ public class ResponseBuilder {
         this.date = date;
     }
 
-    public String formatDate(Date date){
+    private String formatDate(Date date){
         DateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz");
         String formattedDate = (dateFormat.format(date));
         return formattedDate;
