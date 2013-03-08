@@ -3,14 +3,6 @@ import java.net.*;
 import java.io.*;
 import java.util.ArrayList;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 2/1/13
- * Time: 10:12 AM
- * To change this template use File | Settings | File Templates.
- */
-
 public class Connection {
 
     public static void main(String[] args) throws IOException {

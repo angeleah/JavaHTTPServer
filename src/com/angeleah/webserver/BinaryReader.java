@@ -1,13 +1,6 @@
 package com.angeleah.webserver;
 import java.io.*;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 2/5/13
- * Time: 2:15 PM
- * To change this template use File | Settings | File Templates.
- */
 public class BinaryReader {
 
     byte[] read(String directory, String fileName) {

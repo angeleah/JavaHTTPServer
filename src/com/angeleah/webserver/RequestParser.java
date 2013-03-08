@@ -1,21 +1,11 @@
 package com.angeleah.webserver;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.net.URLDecoder;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 2/13/13
- * Time: 2:15 PM
- * To change this template use File | Settings | File Templates.
- */
 public class RequestParser {
 
     private RequestStore requestStore;

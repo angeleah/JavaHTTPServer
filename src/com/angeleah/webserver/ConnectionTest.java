@@ -5,13 +5,6 @@ import org.junit.Test;
 import java.net.*;
 import java.io.*;
 
-///**
-// * Created with IntelliJ IDEA.
-// * User: angeleah
-// * Date: 2/1/13
-// * Time: 10:13 AM
-// * To change this template use File | Settings | File Templates.
-// */
 public class ConnectionTest {
 
     @Test

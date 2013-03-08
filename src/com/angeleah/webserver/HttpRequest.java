@@ -1,17 +1,9 @@
 package com.angeleah.webserver;
-
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 2/27/13
- * Time: 3:17 PM
- * To change this template use File | Settings | File Templates.
- */
 final class HttpRequest implements Runnable {
 
     private final Socket client;

@@ -1,5 +1,4 @@
 package com.angeleah.webserver;
-
 import org.junit.Test;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
@@ -14,13 +13,6 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 2/13/13
- * Time: 2:15 PM
- * To change this template use File | Settings | File Templates.
- */
 public class RequestParserTest {
 
     @Test
@@ -35,7 +27,7 @@ public class RequestParserTest {
         assertEquals("/form", requestStore.getRequestUri());
         assertEquals("HTTP/1.1", requestStore.getProtocolVersion());
         assertEquals(length, requestStore.getRequestContentLength());
-       assertEquals("my = data value1 = hello", requestStore.getRequestBody());
+        assertEquals("my = data value1 = hello", requestStore.getRequestBody());
     }
 
     @Test

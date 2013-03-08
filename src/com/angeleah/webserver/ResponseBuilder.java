@@ -1,17 +1,8 @@
 package com.angeleah.webserver;
-
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 2/18/13
- * Time: 11:07 AM
- * To change this template use File | Settings | File Templates.
- */
 public class ResponseBuilder {
 
     private RequestStore requestStore;
@@ -106,4 +97,3 @@ public class ResponseBuilder {
         return buildLine("Location", requestStore.getLocation());
     }
 }
-

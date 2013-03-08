@@ -4,13 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 2/16/13
- * Time: 12:45 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Router {
 
     private HashMap<String, Object> routes = new HashMap<String, Object>();
@@ -62,4 +55,3 @@ public class Router {
         return directoryContents;
     }
 }
-

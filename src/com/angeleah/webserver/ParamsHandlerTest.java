@@ -1,5 +1,4 @@
 package com.angeleah.webserver;
-
 import org.junit.Before;
 import org.junit.Test;
 import static junit.framework.Assert.assertEquals;
@@ -8,18 +7,10 @@ import static junit.framework.Assert.assertTrue;
 
 import java.util.HashMap;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 2/12/13
- * Time: 10:23 PM
- * To change this template use File | Settings | File Templates.
- */
 public class ParamsHandlerTest {
 
     public ParamsHandler paramsHandler;
     public String directory = "com/angeleah/webserver/TestDirectory/";
-
 
     @Before
     public void SetUp() {
@@ -41,15 +32,6 @@ public class ParamsHandlerTest {
         byte[] b2 = body.getBytes();
         assertEquals("200", requestStore.getCode());
         assertEquals("OK", requestStore.getStatus());
-        assertEquals(true, paramsCompare(b1, b2));
-    }
-
-    public boolean paramsCompare(byte[] b1, byte[] b2){
-        for (int i=0; i< b1.length; i++) {
-            if (b1[i] != b2[i]) {
-                return false;
-            }
-        }
-        return true;
+        assert(TestHelper.FileByteArrayCompare(b1, b2));
     }
 }

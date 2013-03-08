@@ -56,7 +56,4 @@ public class RequestStoreTest {
         assertEquals(body[1], requestStore.getBody()[1]);
         assertEquals(body[2], requestStore.getBody()[2]);
     }
-
-
-
 }

@@ -1,12 +1,5 @@
 package com.angeleah.webserver;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 1/24/13
- * Time: 10:33 AM
- * To change this template use File | Settings | File Templates.
- */
 public class MimeTypeExtractor {
 
     public String extractType(String pathExtension){

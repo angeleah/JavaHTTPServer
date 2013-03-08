@@ -1,16 +1,8 @@
 package com.angeleah.webserver;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 1/21/13
- * Time: 2:50 PM
- * To change this template use File | Settings | File Templates.
- */
 public class HtmlBodyBuilder {
 
     public HtmlBodyBuilder() {

@@ -1,22 +1,9 @@
 package com.angeleah.webserver;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Date;
-
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 2/13/13
- * Time: 4:02 PM
- * To change this template use File | Settings | File Templates.
- */
-
-//ideas for a test to add would be that host is present for http1.1 or else it returns 400 bad request.
-//    one or more blank lines can be parsed from the body.
-
 
 public class Conductor {
 

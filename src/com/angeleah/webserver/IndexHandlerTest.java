@@ -8,13 +8,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
-* Created with IntelliJ IDEA.
-* User: angeleah
-* Date: 2/8/13
-* Time: 3:03 PM
-* To change this template use File | Settings | File Templates.
-*/
 public class IndexHandlerTest {
 
     public IndexHandler indexHandler;
@@ -24,8 +17,6 @@ public class IndexHandlerTest {
     public void SetUp() {
         indexHandler = new IndexHandler();
     }
-
-//    dependency on the exact files in the directory;
 
     @Test
     public void indexHandlerShouldBeAbleToReadADirectory() {

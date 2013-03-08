@@ -1,14 +1,6 @@
 package com.angeleah.webserver;
-
 import java.util.HashMap;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 1/31/13
- * Time: 9:32 AM
- * To change this template use File | Settings | File Templates.
- */
 public class RequestStore {
     private String method = null;
     private String requestUri = null;
@@ -168,5 +160,4 @@ public class RequestStore {
     public String getRequestBody() {
         return requestBody;
     }
-
 }

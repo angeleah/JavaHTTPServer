@@ -1,5 +1,4 @@
 package com.angeleah.webserver;
-
 import org.junit.Before;
 import org.junit.Test;
 import java.util.HashMap;
@@ -7,13 +6,6 @@ import java.util.HashMap;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 
-/**
- * Created with IntelliJ IDEA.
- * User: angeleah
- * Date: 2/12/13
- * Time: 4:08 PM
- * To change this template use File | Settings | File Templates.
- */
 public class RedirectHandlerTest {
 
     private RedirectHandler redirectHandler;
