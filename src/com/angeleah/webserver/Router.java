@@ -9,9 +9,11 @@ public class Router {
     private HashMap<String, Object> routes = new HashMap<String, Object>();
 
     private String directory;
+    private int port;
 
-    public Router(String directory) {
+    public Router(String directory, int port) {
         this.directory = directory;
+        this.port = port;
     }
 
     public void register(String path, RequestHandler handler) {
@@ -20,11 +22,11 @@ public class Router {
 
     public void routeRequest(RequestStore requestStore) {
         String path = requestStore.getRequestUri();
-        RequestHandler handler = getRequestHandlerForPath(directory, path);
-        handler.handle(requestStore,directory);
+        RequestHandler handler = getRequestHandlerForPath(directory,port, path);
+        handler.handle(requestStore,directory,port);
     }
 
-    private RequestHandler getRequestHandlerForPath(String directory, String path) {
+    private RequestHandler getRequestHandlerForPath(String directory, int port, String path) {
         if (routes.containsKey(path)) {
             return (RequestHandler) routes.get(path);
         } else if (pathIsAFile(directory, path)) {

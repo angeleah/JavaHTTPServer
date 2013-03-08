@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class IndexHandler implements RequestHandler {
 
-    public RequestStore handle(RequestStore requestStore, String directory) {
+    public RequestStore handle(RequestStore requestStore, String directory, int port) {
         HtmlBodyBuilder htmlBodyBuilder = new HtmlBodyBuilder();
         ArrayList<String> dirContents = readDirectory(directory);
         String body = htmlBodyBuilder.createHtmlBodyWithDirectoryContents(dirContents);

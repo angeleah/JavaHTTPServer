@@ -116,10 +116,20 @@ public class RequestStore {
         status = "OK";
     }
 
-    public void setRedirect() {
+    public void setRedirect(int port) {
         code = "302";
         status = "redirect";
-        location  = "http://localhost:5000/";
+        location = createRedirectLocation(port);
+    }
+
+    private String createRedirectLocation(int port) {
+        StringBuilder location = new StringBuilder();
+        location.append("http://");
+        location.append(headers.get("Host"));
+        location.append(":");
+        location.append(port);
+        location.append("/");
+        return location.toString();
     }
 
     public void set404() {

@@ -2,7 +2,7 @@ package com.angeleah.webserver;
 
 public class NotFoundHandler implements RequestHandler{
 
-    public RequestStore handle(RequestStore requestStore, String directory) {
+    public RequestStore handle(RequestStore requestStore, String directory, int port) {
           HtmlBodyBuilder htmlBodyBuilder = new HtmlBodyBuilder();
           String body = htmlBodyBuilder.createHtmlNotFoundBody();
           requestStore.setBody(body.getBytes());

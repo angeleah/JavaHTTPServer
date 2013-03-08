@@ -2,7 +2,7 @@ package com.angeleah.webserver;
 
 public class FileHandler implements RequestHandler {
 
-    public RequestStore handle(RequestStore requestStore, String directory) {
+    public RequestStore handle(RequestStore requestStore, String directory, int port) {
         if (requestStore.getMethod().equals("GET") && (requestStore.getStartRange() == null)) {
             BinaryReader reader = new BinaryReader();
             byte[] body = reader.read(directory, requestStore.getRequestUri());

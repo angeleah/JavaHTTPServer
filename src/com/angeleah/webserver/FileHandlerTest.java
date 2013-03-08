@@ -7,6 +7,7 @@ public class FileHandlerTest {
 
     public FileHandler fileHandler;
     public String directory = "com/angeleah/webserver/TestDirectory/";
+    public int port = 5000;
 
     @Before
     public void SetUp() {
@@ -19,7 +20,7 @@ public class FileHandlerTest {
         String body = "<p>This Page is awesome</p>";
         requestStore.setRequestUri("awesomePage.html");
         requestStore.setMethod("GET");
-        fileHandler.handle(requestStore, directory);
+        fileHandler.handle(requestStore, directory, port);
         assertEquals("200", requestStore.getCode());
         assertEquals("OK",requestStore.getStatus());
         byte[] b1 = requestStore.getBody();
@@ -32,7 +33,7 @@ public class FileHandlerTest {
         RequestStore requestStore = new RequestStore();
         requestStore.setRequestUri("awesomePage.html");
         requestStore.setMethod("PUT");
-        fileHandler.handle(requestStore,directory);
+        fileHandler.handle(requestStore,directory, port);
         assertEquals("405", requestStore.getCode());
         assertEquals("Method Not Allowed", requestStore.getStatus());
     }
@@ -45,7 +46,7 @@ public class FileHandlerTest {
         requestStore.setMethod("GET");
         requestStore.setStartRange(0);
         requestStore.setEndRange(9);
-        fileHandler.handle(requestStore,directory);
+        fileHandler.handle(requestStore,directory, port);
         assertEquals("206", requestStore.getCode());
         assertEquals("Partial Content",requestStore.getStatus());
         byte[] b1 = requestStore.getBody();

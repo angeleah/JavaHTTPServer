@@ -12,6 +12,7 @@ public class IndexHandlerTest {
 
     public IndexHandler indexHandler;
     public String directory = "com/angeleah/webserver/TestDirectory/";
+    public int port = 5000;
 
     @Before
     public void SetUp() {
@@ -35,7 +36,7 @@ public class IndexHandlerTest {
     @Test
     public void itShouldBeAbleToHandleTheRequest() {
         RequestStore requestStore = new RequestStore();
-        indexHandler.handle(requestStore, directory);
+        indexHandler.handle(requestStore, directory, port);
         String code = requestStore.getCode();
         String status = requestStore.getStatus();
         assertEquals("200", code );

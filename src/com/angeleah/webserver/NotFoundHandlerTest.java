@@ -11,6 +11,7 @@ public class NotFoundHandlerTest {
 
     public NotFoundHandler notFoundHandler;
     public String directory = "com/angeleah/webserver/TestDirectory/";
+    public int port = 5000;
 
     @Before
     public void SetUp() {
@@ -20,7 +21,7 @@ public class NotFoundHandlerTest {
     @Test
     public void itShouldbeAbleToHandleA404Properly() {
         RequestStore requestStore = new RequestStore();
-        notFoundHandler.handle(requestStore, directory);
+        notFoundHandler.handle(requestStore, directory, port);
         assertEquals("404", requestStore.getCode());
         assertEquals("Not Found", requestStore.getStatus());
     }

@@ -12,7 +12,7 @@ public class Connection {
             String directory = parseDirectory(args);
             ServerSocket serverSocket = new ServerSocket(port);
             ArrayList<Thread> threads = new ArrayList<Thread>();
-            Router router = new Router(directory);
+            Router router = new Router(directory, port);
 
             for (;;)  {
                 Socket client = serverSocket.accept();
