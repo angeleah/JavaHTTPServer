@@ -7,11 +7,11 @@ import java.net.Socket;
 final class HttpRequest implements Runnable {
 
     private final Socket client;
-    private final String directory;
+    private final Router router;
 
-    public HttpRequest(Socket client, String directory){
+    public HttpRequest(Socket client, Router router){
         this.client = client;
-        this.directory = directory;
+        this.router = router;
     }
 
     public void run() {
@@ -24,7 +24,7 @@ final class HttpRequest implements Runnable {
 
     private void processRequest() throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-        Conductor conductor = new Conductor(in, directory);
+        Conductor conductor = new Conductor(in, router);
         DataOutputStream out= new DataOutputStream(client.getOutputStream());
 
         byte[] response = conductor.conductTheProcess();

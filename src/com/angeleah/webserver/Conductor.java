@@ -7,13 +7,13 @@ import java.util.Date;
 
 public class Conductor {
 
-    public BufferedReader in;
-    public RequestStore requestStore;
-    public String directory;
+    private BufferedReader in;
+    private RequestStore requestStore;
+    private Router router;
 
-    public Conductor(BufferedReader in, String directory) {
+    public Conductor(BufferedReader in, Router router) {
         this.in = in;
-        this.directory = directory;
+        this.router = router;
     }
 
     public byte[] conductTheProcess() throws IOException {
@@ -31,7 +31,6 @@ public class Conductor {
     }
 
     public void routeRequest(RequestStore requestStore) {
-        Router router = new Router(directory);
         registerRoutes(router);
         router.routeRequest(requestStore);
     }

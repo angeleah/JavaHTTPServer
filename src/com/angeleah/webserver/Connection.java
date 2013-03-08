@@ -12,10 +12,11 @@ public class Connection {
             String directory = parseDirectory(args);
             ServerSocket serverSocket = new ServerSocket(port);
             ArrayList<Thread> threads = new ArrayList<Thread>();
+            Router router = new Router(directory);
 
             for (;;)  {
                 Socket client = serverSocket.accept();
-                HttpRequest request = new HttpRequest(client, directory);
+                HttpRequest request = new HttpRequest(client, router);
                 Thread thread = new Thread(request);
                 threads.add(thread);
                 thread.start();
