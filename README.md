@@ -15,3 +15,4 @@ An HTTP Server in Java. This server was created to pass certain specifications i
 + handles simple GET requests
 + handles simple POST requests
 + handles simple PUT requests
++ handles simultaneous requests
